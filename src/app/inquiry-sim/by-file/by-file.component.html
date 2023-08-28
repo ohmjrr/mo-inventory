@@ -1,0 +1,44 @@
+<section>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header aria-labelledby="form">
+            <mat-panel-title>Search By File</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="from">
+            <div class="mas-form-fill">
+              <label>System :</label>
+              <mat-form-field appearance="fill">
+                <mat-select>
+                  <mat-option value="PPS">PPS SIM Service</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="mas-form-fill">
+              <label class="required">File</label>
+              <mat-form-field appearance="fill" (click)="file.click()">
+                <input
+                  #file
+                  type="file"
+                  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                />
+                <input matInput readonly />
+                <button matSuffix mat-icon-button>
+                  <mat-icon>file_upload</mat-icon>
+                </button>
+              </mat-form-field>
+            </div>
+            <div>
+              <section>
+                <button mat-button color="primary">
+                  <mat-icon>description</mat-icon><span>Download Template</span>
+                </button>
+              </section>
+            </div>
+            <div>
+              <button mat-flat-button color="accent">Clear</button>
+              <button mat-flat-button color="primary">Search</button>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+</section>

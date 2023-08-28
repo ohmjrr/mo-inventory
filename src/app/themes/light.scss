@@ -1,0 +1,491 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+
+$primary-palette: (
+  100: #e1ecbc,
+  200: #cde090,
+  300: #bad365,
+  400: #adcb44,
+  500: #a0c21e,
+  600: #96b118,
+  700: #879c0e,
+  800: #788604,
+  900: #606100,
+  contrast: (100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+$accent-palette: (
+  100: #f0f0f0,
+  200: #e3e2e2,
+  300: #c0bfbf,
+  400: #a2a1a1,
+  500: #787878,
+  600: #646363,
+  700: #454444,
+  800: #242323,
+  900: #1f1e1e,
+  contrast: (100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+$warn-palette: (
+  100: #ffcdd2,
+  200: #ef9a9a,
+  300: #e57373,
+  400: #ef5350,
+  500: #f44336,
+  600: #e53935,
+  700: #d32f2f,
+  800: #c62828,
+  900: #b71c1c,
+  contrast: (100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+
+
+
+$light-theme: 
+mat.define-light-theme(
+  (color: (primary: mat.define-palette($primary-palette),
+        accent: mat.define-palette($accent-palette),
+        warn: mat.define-palette($warn-palette),
+      ),
+  )
+);
+
+
+@mixin button-component {
+
+  .mdc-button {
+    // font-family: "DB Helvethaica";
+    font-family: 'DB Helvethaica' , 'arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-size: 20px;
+    font-weight: bold;
+    max-width: fit-content;
+  }
+
+  .mat-mdc-unelevated-button.mat-primary {
+    --mdc-filled-button-label-text-color: white;
+  }
+
+  .mat-mdc-unelevated-button.mat-accent {
+    --mdc-filled-button-label-text-color: white;
+  }
+
+  .mat-mdc-unelevated-button.mat-warn {
+    --mdc-filled-button-label-text-color: white;
+  }
+
+  .mat-dialog-actions .mat-button-base+.mat-button-base {
+    margin: 0;
+  }
+
+
+}
+
+@mixin chip-component {
+  .mat-chip-list-wrapper {
+    flex-wrap: nowrap;
+  }
+
+  .mat-chip {
+    user-select: none;
+    font-size: 20px;
+  }
+
+  .mat-chip:not([disabled]) {
+    cursor: pointer;
+  }
+
+  .mat-chip[disabled] {
+    pointer-events: none;
+  }
+}
+
+@mixin dialog-component {
+  .mat-dialog-container {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .mat-dialog-content {
+    margin: 0 0.5em;
+    display: grid;
+    grid-auto-flow: row;
+    gap: 0;
+    justify-content: stretch;
+  }
+
+  .mat-dialog-actions {
+    margin: 0 2em;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1em;
+    justify-content: end;
+  }
+}
+
+@mixin form-component {
+  .mat-form-field-appearance-fill {
+    font-size: 13px;
+  }
+
+  .mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-flex {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  .mas-form-fill {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-auto-flow: column;
+    gap: 1em;
+
+    :first-child {
+      justify-self: end;
+      align-self: center;
+    }
+
+    :last-child {
+      justify-self: stretch;
+    }
+  }
+
+  .mas-form-fill-file {
+    display: grid;
+  }
+
+  .mas-form-outline {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 0.5em;
+
+    label {
+      font-family: "DB Helvethaica Rounded";
+      color: map.get($accent-palette, 500);
+      user-select: none;
+    }
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  input:not([disabled]):read-only {
+    cursor: default;
+  }
+
+  ::ng-deep {
+    .mat-expansion-indicator::after {
+      border-color: map.get($accent-palette, 700);
+    }
+
+    .mdc-text-field--filled .mdc-line-ripple::after {
+      border-bottom-color: map.get($primary-palette, 500);
+    }
+
+
+    .mdc-text-field .mdc-text-field__input {
+      caret-color: map.get($accent-palette, 500);
+    }
+
+    .mat-mdc-tab .mdc-tab-indicator__content--underline {
+      border-color: map.get($accent-palette, 700);
+    }
+
+    .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+      color: map.get($accent-palette, 700) !important;
+    }
+
+    .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after {
+      color: map.get($primary-palette, 700) !important;
+    }
+
+    .mdc-list-item__primary-text {
+      color: map.get($accent-palette, 700) !important;
+    }
+
+    .mat-mdc-form-field.mat-focused .mat-mdc-select-arrow {
+      color: map.get($primary-palette, 700) !important;
+    }
+
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+      border-color: map.get($primary-palette, 700) !important;
+    }
+  }
+
+  label {
+    font-family: "DB Helvethaica Rounded";
+    color: map.get($accent-palette, 500);
+    user-select: none;
+  }
+}
+
+@mixin icon-component {
+  .mat-icon-button {
+    color: map.get($accent-palette, 500);
+  }
+
+  .mas-step-icon {
+    height: max-content;
+    width: max-content;
+    font-size: 64px;
+  }
+}
+
+@mixin panel-component() {
+  .mat-expansion-panel {
+    margin: 0 3em;
+  }
+
+  .mat-expansion-panel-header {
+    font-family: "DB Helvethaica Rounded";
+    font-size: 25px;
+  }
+
+  .mat-expansion-panel-header[aria-labelledby="form"] {
+    background-color: map.get($accent-palette, 200) !important;
+  }
+
+  .mat-expansion-panel-header[aria-labelledby="table"] {
+    background-color: transparent !important;
+  }
+
+  .mat-expansion-panel-header-title {
+    color: map.get($accent-palette, 700);
+    user-select: none;
+  }
+
+  .mat-expansion-indicator::after {
+    border-color: map.get($accent-palette, 700);
+  }
+}
+
+@mixin stepper-component() {
+  .mat-vertical-content {
+    display: grid;
+    justify-content: center;
+  }
+}
+
+@mixin tab-component() {
+  // .mat-tab-labels {
+  //   margin: 0 2em;
+  //   display: flex;
+  //   gap: 1em;
+  //   height: 68px !important;
+  //   user-select: none;
+  // }
+
+  // .mat-tab-label {
+  //   background: map.get($accent-palette, 200);
+  //   border-radius: 15px;
+  //   height: 58px !important;
+  //   font-family: "DB Helvethaica Rounded";
+  //   font-size: 16px;
+  // }
+
+  // .mat-tab-label.mat-tab-label-active {
+  //   background: map.get($primary-palette, 400);
+  //   color: map.get($primary-palette, "contrast", 400) !important;
+  //   opacity: 1;
+  // }
+
+  
+  // .mat-tab-header {
+  //   border-bottom: none;
+  // }
+  
+  // .mat-ink-bar {
+  //   padding: 1px 0;
+  //   border-radius: 5px;
+  // }
+
+  .mat-mdc-tab-labels{
+    margin: 0 1em;
+    display: flex;
+    gap: 1em;
+    height: 68px !important;
+    width: 500px;
+    user-select: none;
+  }
+  .mat-mdc-tab{
+    background: map.get($accent-palette, 200);
+    border-radius: 15px;
+    height: 58px !important;
+    width: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  .mdc-tab__text-label{
+    font-family: "DB Helvethaica Rounded";
+    font-size: 16px;
+  }
+
+  .mat-mdc-tab.mdc-tab--active{
+    background: map.get($primary-palette, 400);
+    opacity: 1;
+  }
+  .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label{
+    color: map.get($primary-palette, "contrast", 400) !important;
+  }
+  .mat-mdc-tab-header{
+    --mdc-tab-indicator-active-indicator-height: 5px;
+    --mdc-tab-indicator-active-indicator-border-radius: 5px;
+  }
+  .mdc-tab-indicator{
+    height: 68px;
+  }
+  .mat-mdc-tab-ripple{
+    border-radius: 15px;
+  }
+
+  
+}
+
+@mixin table-component() {
+  table {
+    width: 100%;
+    white-space: nowrap;
+    font-family: "DB Helvethaica";
+
+    th.mat-mdc-header-cell {
+      font-size: 18px;
+      font-weight: 700;
+      text-align: center;
+      padding: 0 20px 0 20px;
+      color: map.get($accent-palette, 700);
+      background-color: map.get($accent-palette, 200);
+    }
+
+    td.mat-mdc-cell {
+      font-size: 16px;
+      font-weight: 400;
+      text-align: center;
+      padding: 0 10px;
+    }
+  }
+
+  .mas-table-container {
+    overflow: auto;
+  }
+
+  .mat-sort-header {
+    user-select: none;
+  }
+
+
+  .mat-chip-list-wrapper {
+    justify-content: center;
+  }
+
+
+
+  // .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
+  //   background-color: map.get($primary-palette, 500);
+  // }
+
+  ::ng-deep {
+    .mdc-evolution-chip-set .mdc-evolution-chip-set__chips {
+      display: flex;
+      flex-flow: row;
+      flex-wrap: wrnowrapap;
+      justify-content: center;
+
+    }
+
+    .mat-sort-header-container {
+      justify-content: center;
+
+    }
+
+    .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+      color: red !important;
+    }
+
+    .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark {
+      color: white !important;
+    }
+
+
+  }
+
+}
+
+@mixin toolbar-component() {
+  .mat-toolbar {
+    font-family: "DB Helvethaica Rounded";
+    color: map.get($accent-palette, 700);
+    background-color: map.get($accent-palette, 200);
+    border-radius: 4px;
+    user-select: none;
+  }
+}
+
+@mixin textfield-component() {
+  ::ng-deep {
+    .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+      color: map.get($accent-palette, 700) !important;
+    }
+  }
+
+}
+
+@mixin input-component(){
+  .mdc-text-field--filled.mdc-text-field--no-label .mdc-text-field__input{
+    font-size: 18px;
+  }
+  .mas-form-fill {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mas-form-fill label {
+    // margin-bottom: 0.5em;
+    align-self: flex-start;
+  }
+}
+
+@mixin all-components {
+  @include button-component();
+  @include chip-component();
+  @include dialog-component();
+  @include form-component();
+  @include icon-component();
+  @include panel-component();
+  @include stepper-component();
+  @include tab-component();
+  @include table-component();
+  @include toolbar-component();
+  @include textfield-component();
+  @include input-component()
+}

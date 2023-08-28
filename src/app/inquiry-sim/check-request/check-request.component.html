@@ -1,0 +1,67 @@
+<mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header aria-labelledby="form">
+        <mat-panel-title>Check Request</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="form">
+        <div class="mas-form-fill">
+            <label>Username :</label>
+            <mat-form-field appearance="fill">
+              <input matInput readonly />
+            </mat-form-field>
+          </div>
+          
+        <div class="mas-form-fill">
+          <label>Job Type :</label>
+          <mat-form-field appearance="fill">
+            <mat-select>
+              <mat-option value="">-- Select Value --</mat-option>
+              <mat-option value="LSS">Load SIM Service</mat-option>
+              <mat-option value="ULSS">Unload SIM Service</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="mas-form-fill">
+          <label>Request ID :</label>
+          <mat-form-field appearance="fill">
+            <input matInput />
+          </mat-form-field>
+        </div>
+        <div class="mas-form-fill">
+          <label>Request Date From :</label>
+          <mat-form-field appearance="fill">
+            <input matInput />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="mas-form-fill">
+          <label>To :</label>
+          <mat-form-field appearance="fill">
+            <input matInput />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="btn">
+          <button mat-flat-button color="accent">Clear</button>
+          <button mat-flat-button color="primary">Search</button>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <br />
+<mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header aria-labelledby="table">
+            <mat-panel-title>Result</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="table-actions">
+            <div class="filter">
+                <label>Filter : </label>
+                <mat-form-field appearance="fill" style="width: 60%;">
+                    <input matInput  />
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

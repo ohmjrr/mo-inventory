@@ -1,0 +1,23 @@
+@import '../../themes/light.scss';
+
+.form {
+    padding: 4em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 1.2em;
+    grid-column-gap: 3em;
+    
+    @include input-component
+  }
+    
+.btn {
+    width: 100%;
+    grid-column: 1 / span 3;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1em;
+    margin-top: 2rem;
+  }
+      
+    

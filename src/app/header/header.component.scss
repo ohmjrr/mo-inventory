@@ -1,0 +1,55 @@
+$ais-color: #b3d335;
+$primary-color: #1e293b;
+$secondary-color: #475569;
+
+.header {
+  background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 32.94%,
+      rgba(255, 255, 255, 0.7) 63.04%,
+      rgba(255, 255, 255, 0.7) 63.05%,
+      #ffffff 90.34%
+    ),
+    url("/assets/images/header.png");
+  background-size: cover;
+  background-position: top;
+  padding: 28px;
+  display: grid;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 10px;
+  padding-left: 28px;
+  gap: 10px;
+}
+p {
+  font-family: "DB Helvethaica Rounded";
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.myoffice {
+  font-size: 45px;
+  letter-spacing: 10px;
+  line-height: 50px;
+  color: $primary-color;
+}
+
+.ais {
+  font-size: 80px;
+  letter-spacing: 10px;
+  line-height: 50px;
+  color: $ais-color;
+}
+
+.screen {
+  font-size: 20px;
+  letter-spacing: 5px;
+  line-height: 50px;
+  color: $secondary-color;
+}
+
+.h-tab {
+  margin-left: 1em;
+}

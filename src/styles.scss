@@ -1,0 +1,22 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+@use "./app/themes/default.scss" as default;
+@use "./app/themes/light.scss" as light;
+@include mat.core();
+// @include mat.core-color(default.$light-theme);
+// @include mat.all-component-themes(default.$light-theme);
+// @include default.all-components();
+
+@include default.all-components();
+
+.light {
+  @include mat.core-color(light.$light-theme);
+  @include mat.all-component-colors(light.$light-theme);
+  @include light.all-components();
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
